@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  @apply bg-madrassa-950 text-madrassa-50 font-body antialiased m-0;
+  background-image:
+    radial-gradient(circle at 15% 0%, rgba(243,210,122,0.07), transparent 35%),
+    radial-gradient(circle at 100% 30%, rgba(31,127,94,0.25), transparent 45%);
+  -webkit-tap-highlight-color: transparent;
+}
+
+* {
+  -webkit-touch-callout: none;
+}
+
+::selection {
+  background: rgba(243,210,122,0.35);
+}
+
+.scrollbar-none::-webkit-scrollbar { display: none; }
+.scrollbar-none { scrollbar-width: none; }
+
+.geo-divider {
+  height: 6px;
+  background-image: repeating-linear-gradient(135deg, #c9941f 0 8px, #f3d27a 8px 16px);
+  opacity: 0.85;
+}
+
+.btn-press {
+  @apply active:scale-95 transition-transform duration-100;
+}
