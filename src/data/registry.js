@@ -1,4 +1,5 @@
 import cours1 from './courses/aqida/3-fondements/cours-1'
+import cours2 from './courses/aqida/3-fondements/cours-2'
 
 export const matieres = [
   {
@@ -10,7 +11,7 @@ export const matieres = [
         id: '3-fondements',
         nom: 'Les 3 Fondements',
         nomArabe: 'الأصول الثلاثة',
-        modules: [cours1],
+        modules: [cours1, cours2],
       },
     ],
   },

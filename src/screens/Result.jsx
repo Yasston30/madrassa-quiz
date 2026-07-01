@@ -10,11 +10,11 @@ import { encodeResultCode, buildShareText } from '../lib/share'
 import { getOtherProfile } from '../lib/profiles'
 import CompareBlock from '../components/CompareBlock'
 
-function messageFor(percent) {
+function messageFor(percent, seuil) {
   if (percent === 100) return { title: 'Mashâ Allah, sans faute ! 🏆', sub: "Score parfait, qu'Allah t'augmente en science." }
   if (percent >= 80) return { title: 'Excellent travail ! 🔥', sub: 'Tu maîtrises très bien ce cours.' }
-  if (percent >= 50) return { title: 'Bien joué ! 👍', sub: 'Encore un peu de révision et ce sera parfait.' }
-  return { title: 'Continue tes efforts 📖', sub: 'Relis le cours et retente ta chance !' }
+  if (percent >= seuil) return { title: 'Objectif atteint ! 🎯', sub: `Tu es au-dessus du seuil de réussite (${seuil}%) pour ce cours, bien joué.` }
+  return { title: 'Continue tes efforts 📖', sub: `Relis le cours et retente ta chance — objectif : ${seuil}%.` }
 }
 
 export default function Result() {
@@ -28,6 +28,7 @@ export default function Result() {
 
   const other = getOtherProfile(profileId)
   const imported = getImportedResults(moduleId)[other.id]
+  const seuil = module?.seuilReussite ?? 60
 
   useEffect(() => {
     if (attempt && attempt.percent >= 80) {
@@ -44,7 +45,8 @@ export default function Result() {
     )
   }
 
-  const { title, sub } = messageFor(attempt.percent)
+  const { title, sub } = messageFor(attempt.percent, seuil)
+  const objectifAtteint = attempt.percent >= seuil
   const shareCode = encodeResultCode({
     profileId,
     profileName: profile.name,
@@ -73,6 +75,13 @@ export default function Result() {
   }
 
   const circumference = 2 * Math.PI * 54
+  const seuilAngle = (seuil / 100) * 2 * Math.PI
+  const seuilTick = {
+    x1: 60 + 46 * Math.cos(seuilAngle),
+    y1: 60 + 46 * Math.sin(seuilAngle),
+    x2: 60 + 62 * Math.cos(seuilAngle),
+    y2: 60 + 62 * Math.sin(seuilAngle),
+  }
 
   return (
     <div className="min-h-full flex flex-col items-center px-6 pt-10 pb-10">
@@ -86,6 +95,7 @@ export default function Result() {
             animate={{ strokeDashoffset: circumference - (attempt.percent / 100) * circumference }}
             transition={{ duration: 1, ease: 'easeOut', delay: 0.2 }}
           />
+          <line x1={seuilTick.x1} y1={seuilTick.y1} x2={seuilTick.x2} y2={seuilTick.y2} stroke="#eaf5f1" strokeWidth="3" strokeLinecap="round" opacity="0.55" />
           <defs>
             <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#f3d27a" />
@@ -102,6 +112,9 @@ export default function Result() {
       <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="text-center mt-6">
         <h1 className="font-display text-2xl font-bold text-white">{title}</h1>
         <p className="text-madrassa-300 text-sm mt-1">{sub}</p>
+        <p className={`text-xs mt-2 inline-flex items-center gap-1 rounded-full px-3 py-1 border ${objectifAtteint ? 'text-emerald-200 border-emerald-400/40 bg-emerald-400/10' : 'text-madrassa-300 border-madrassa-700/60 bg-madrassa-900/50'}`}>
+          🎯 Objectif du cours : {seuil}% {objectifAtteint ? '· atteint' : ''}
+        </p>
       </motion.div>
 
       <div className="w-full max-w-sm mt-8">

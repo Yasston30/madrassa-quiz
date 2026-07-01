@@ -7,6 +7,7 @@ export default {
   description:
     "Biographie du Sheikh Muhammad Ibn 'Abdul Wahhab et présentation générale du livre Al-Oussoulou Ath-thalathah (Les 3 Fondements).",
   dureeEstimee: '10-15 min',
+  seuilReussite: 60,
   questions: [
     {
       id: 'q1',

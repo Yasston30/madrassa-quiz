@@ -54,6 +54,7 @@ export default function ModuleDetail() {
         <h1 className="font-display text-2xl font-bold text-white mt-1">{module.titre}</h1>
         <p className="text-madrassa-300 text-sm mt-2 leading-relaxed">{module.description}</p>
         <p className="text-madrassa-400 text-xs mt-2">{module.questions.length} questions · {module.dureeEstimee}</p>
+        <p className="text-gold-300/90 text-xs mt-2">🎯 Objectif de réussite : {module.seuilReussite ?? 60}%</p>
       </header>
 
       <div className="px-5">
