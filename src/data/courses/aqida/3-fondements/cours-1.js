@@ -66,7 +66,7 @@ export default {
       question: "En quelle année de l'Hégire le Sheikh Muhammad Ibn 'Abdul Wahhab est-il né ?",
       options: ['1115 H', '1206 H', '1303 H', '1050 H'],
       answerIndex: 0,
-      explication: "Il est né en l'an 1115 de l'Hégire (1703 G.) dans le village d'Al-'Uyaynah.",
+      explication: "Il est né en l'an 1115 de l'Hégire (1703 G.), dans la région du Najd.",
       sourceRef: 'biographie',
     },
     {
@@ -146,7 +146,7 @@ export default {
     {
       id: 'q11',
       type: 'qcm',
-      question: "Chez qui le sheikh trouva-t-il refuge dans la ville d'Ad-Diriyah ?",
+      question: "Après avoir dû quitter Al-'Uyaynah une seconde fois, chez qui le sheikh trouva-t-il refuge ?",
       options: ["Mouhammed Ibn Sa'ûd", "Le mufti d'Al Basra", 'Sheikh Ibn Bâz', "Le dirigeant d'Al-'Uyaynah"],
       answerIndex: 0,
       explication: "Il trouva asile auprès de Mouhammed Ibn Sa'ûd, l'ancêtre de la dynastie des As-Sa'ud, avec qui il conclut une alliance.",
@@ -195,14 +195,9 @@ export default {
       id: 'q16',
       type: 'qcm',
       question: 'Quelle est la quatrième partie du livre « Les 3 fondements » ?',
-      options: [
-        'Les trois fondements : Qui est ton Seigneur ? Quelle est ta religion ? Quel est ton Prophète ?',
-        'Les quatre sujets',
-        'Les trois sujets',
-        'Al-hanafiyyah',
-      ],
+      options: ['Les trois fondements', 'Les quatre sujets', 'Les trois sujets', 'Al-hanafiyyah'],
       answerIndex: 0,
-      explication: "La quatrième partie traite des trois fondements : Qui est ton Seigneur ? Quelle est ta religion ? Quel est ton Prophète ?",
+      explication: 'La quatrième partie traite des trois fondements évoqués par le sheikh.',
       sourceRef: 'structure-livre',
     },
     {

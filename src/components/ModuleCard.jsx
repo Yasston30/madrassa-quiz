@@ -21,7 +21,7 @@ export default function ModuleCard({ module, index = 0 }) {
         {module.isExamenCumulatif ? '🧩' : '📘'}
       </div>
       <div className="flex-1 min-w-0">
-        <p className="font-display font-bold text-white truncate">{module.titre}</p>
+        <p className="font-display font-bold text-white line-clamp-2">{module.titre}</p>
         <p className="text-madrassa-300 text-xs truncate">{module.questions.length} questions · {module.dureeEstimee}</p>
         {best ? (
           <p className="text-gold-300 text-xs mt-1 flex items-center gap-1">

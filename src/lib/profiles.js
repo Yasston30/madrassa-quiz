@@ -5,6 +5,7 @@ export const PROFILES = {
     emoji: '🧔🏻',
     gradient: 'from-madrassa-500 to-madrassa-800',
     accent: 'madrassa',
+    voiceGender: 'male',
   },
   nargis: {
     id: 'nargis',
@@ -12,6 +13,7 @@ export const PROFILES = {
     emoji: '🧕🏻',
     gradient: 'from-gold-400 to-gold-600',
     accent: 'gold',
+    voiceGender: 'female',
   },
 }
 

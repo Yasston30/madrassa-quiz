@@ -74,7 +74,7 @@ export default function App() {
   return (
     <ProfileProvider>
       <HashRouter>
-        <div className="max-w-md mx-auto min-h-screen">
+        <div className="min-h-screen">
           <AppRoutes />
         </div>
       </HashRouter>

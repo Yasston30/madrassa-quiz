@@ -48,8 +48,8 @@ export default function Quiz() {
   }
 
   return (
-    <div className="min-h-full flex flex-col">
-      <header className="px-5 pt-6 pb-4">
+    <div className="min-h-full flex flex-col max-w-2xl mx-auto w-full">
+      <header className="px-5 md:px-10 pt-6 pb-4">
         <div className="flex items-center justify-between mb-3">
           <button onClick={() => navigate(-1)} className="btn-press text-madrassa-400">
             <X size={22} />
@@ -68,7 +68,7 @@ export default function Quiz() {
         </div>
       </header>
 
-      <div className="px-5 flex-1">
+      <div className="px-5 md:px-10 flex-1">
         <AnimatePresence mode="wait">
           <QuestionCard
             key={`${current._sourceModuleId ?? module.id}:${current.id}`}

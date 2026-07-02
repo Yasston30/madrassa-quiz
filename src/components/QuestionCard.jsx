@@ -1,10 +1,11 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Check, X, ArrowRight, BookOpen } from 'lucide-react'
 import { isBlankAnswerCorrect } from '../lib/grading'
 import { containsArabic } from '../lib/speech'
+import { getModuleById } from '../data/registry'
 import SpeakButton from './SpeakButton'
+import PassageModal from './PassageModal'
 
 const TYPE_LABELS = {
   qcm: 'QCM',
@@ -14,12 +15,15 @@ const TYPE_LABELS = {
 }
 
 export default function QuestionCard({ question, onNext, moduleId }) {
-  const navigate = useNavigate()
   const [revealed, setRevealed] = useState(false)
   const [selectedIndex, setSelectedIndex] = useState(null)
   const [selectedBool, setSelectedBool] = useState(null)
   const [blankInput, setBlankInput] = useState('')
   const [isCorrect, setIsCorrect] = useState(false)
+  const [showPassage, setShowPassage] = useState(false)
+
+  const passageSection =
+    question.sourceRef && moduleId ? getModuleById(moduleId)?.resume?.find((s) => s.id === question.sourceRef) : null
 
   function reveal(correct) {
     setIsCorrect(correct)
@@ -184,9 +188,9 @@ export default function QuestionCard({ question, onNext, moduleId }) {
                     <span className="text-gold-300 font-semibold">Réponse modèle : </span>
                     {question.reponseModele}
                   </p>
-                  {question.sourceRef && moduleId && (
+                  {passageSection && (
                     <button
-                      onClick={() => navigate(`/module/${moduleId}/cours#${question.sourceRef}`)}
+                      onClick={() => setShowPassage(true)}
                       className="btn-press mt-3 mb-3 inline-flex items-center gap-1.5 text-xs text-gold-300 border border-gold-300/30 bg-gold-300/10 rounded-full px-3 py-1.5"
                     >
                       <BookOpen size={13} /> Revoir ce passage du cours
@@ -211,9 +215,9 @@ export default function QuestionCard({ question, onNext, moduleId }) {
                     <p className="text-madrassa-300 text-sm mt-1">Réponse attendue : <span className="text-gold-300 font-semibold">{question.answers[0]}</span></p>
                   )}
                   {question.explication && <p className="text-madrassa-300 text-sm mt-2">{question.explication}</p>}
-                  {question.sourceRef && moduleId && (
+                  {passageSection && (
                     <button
-                      onClick={() => navigate(`/module/${moduleId}/cours#${question.sourceRef}`)}
+                      onClick={() => setShowPassage(true)}
                       className="btn-press mt-3 inline-flex items-center gap-1.5 text-xs text-gold-300 border border-gold-300/30 bg-gold-300/10 rounded-full px-3 py-1.5"
                     >
                       <BookOpen size={13} /> Revoir ce passage du cours
@@ -228,6 +232,8 @@ export default function QuestionCard({ question, onNext, moduleId }) {
           </motion.div>
         )}
       </AnimatePresence>
+
+      <PassageModal section={showPassage ? passageSection : null} onClose={() => setShowPassage(false)} />
     </motion.div>
   )
 }

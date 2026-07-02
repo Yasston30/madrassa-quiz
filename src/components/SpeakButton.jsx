@@ -1,21 +1,29 @@
 import { Volume2 } from 'lucide-react'
-import { canSpeak, speak } from '../lib/speech'
+import { canSpeak, speak, extractArabic } from '../lib/speech'
+import { useProfile } from '../context/ProfileContext'
 
 export default function SpeakButton({ text, className = '' }) {
+  const { profile } = useProfile()
   if (!canSpeak()) return null
+
+  function handleSpeak() {
+    const arabicOnly = extractArabic(text)
+    speak(arabicOnly || text, { gender: profile?.voiceGender })
+  }
+
   return (
     <span
       role="button"
       tabIndex={0}
       onClick={(e) => {
         e.stopPropagation()
-        speak(text)
+        handleSpeak()
       }}
       onKeyDown={(e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.stopPropagation()
           e.preventDefault()
-          speak(text)
+          handleSpeak()
         }
       }}
       aria-label="Écouter la prononciation"

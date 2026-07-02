@@ -33,8 +33,8 @@ export default function CourseSummary() {
   }
 
   return (
-    <div className="min-h-full pb-10">
-      <header className="px-5 pt-8 pb-4">
+    <div className="min-h-full pb-10 max-w-2xl mx-auto">
+      <header className="px-5 md:px-10 pt-8 pb-4">
         <button onClick={() => navigate(-1)} className="btn-press flex items-center gap-1.5 text-madrassa-300 text-sm mb-4">
           <ArrowLeft size={16} /> Retour
         </button>
@@ -44,7 +44,7 @@ export default function CourseSummary() {
         <h1 className="font-display text-2xl font-bold text-white">{module.titre}</h1>
       </header>
 
-      <div className="px-5 space-y-4">
+      <div className="px-5 md:px-10 space-y-4">
         {(module.resume ?? []).map((section) => (
           <section
             key={section.id}
@@ -78,7 +78,7 @@ export default function CourseSummary() {
         )}
       </div>
 
-      <div className="px-5 mt-8">
+      <div className="px-5 md:px-10 mt-8">
         <button
           onClick={() => navigate(`/module/${module.id}/quiz`)}
           className="btn-press w-full rounded-2xl bg-gradient-to-r from-gold-400 to-gold-600 text-madrassa-950 font-display font-bold text-lg py-4 flex items-center justify-center gap-2 shadow-glow"

@@ -46,8 +46,8 @@ export default function ModuleDetail() {
   }
 
   return (
-    <div className="min-h-full pb-10">
-      <header className="px-5 pt-8 pb-4">
+    <div className="min-h-full pb-10 max-w-2xl mx-auto">
+      <header className="px-5 md:px-10 pt-8 pb-4">
         <button onClick={() => navigate(-1)} className="btn-press flex items-center gap-1.5 text-madrassa-300 text-sm mb-4">
           <ArrowLeft size={16} /> Retour
         </button>
@@ -63,7 +63,7 @@ export default function ModuleDetail() {
         <p className="text-gold-300/90 text-xs mt-2">🎯 Objectif de réussite : {module.seuilReussite ?? 60}%</p>
       </header>
 
-      <div className="px-5 space-y-2.5">
+      <div className="px-5 md:px-10 space-y-2.5">
         <motion.button
           whileTap={{ scale: 0.97 }}
           onClick={() => navigate(`/module/${module.id}/quiz`)}
@@ -91,7 +91,7 @@ export default function ModuleDetail() {
         )}
       </div>
 
-      <div className="px-5 mt-8">
+      <div className="px-5 md:px-10 mt-8">
         <h2 className="text-madrassa-200 font-semibold text-sm flex items-center gap-2 mb-3">
           <Users size={16} /> Comparaison avec {other.emoji} {other.name}
         </h2>
@@ -119,7 +119,7 @@ export default function ModuleDetail() {
       </div>
 
       {attempts.length > 0 && (
-        <div className="px-5 mt-8">
+        <div className="px-5 md:px-10 mt-8">
           <h2 className="text-madrassa-200 font-semibold text-sm flex items-center gap-2 mb-3">
             <History size={16} /> Historique de {PROFILES[profileId].name}
           </h2>

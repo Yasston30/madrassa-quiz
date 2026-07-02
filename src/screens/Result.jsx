@@ -117,12 +117,12 @@ export default function Result() {
         </p>
       </motion.div>
 
-      <div className="w-full max-w-sm mt-8">
+      <div className="w-full max-w-sm sm:max-w-md mt-8">
         <h2 className="text-madrassa-200 font-semibold text-sm mb-3">Comparer avec {other.emoji} {other.name}</h2>
         <CompareBlock moi={attempt} autre={imported} autreNom={other.name} autreEmoji={other.emoji} />
       </div>
 
-      <div className="w-full max-w-sm mt-6 space-y-2.5">
+      <div className="w-full max-w-sm sm:max-w-md mt-6 space-y-2.5">
         <button onClick={handleShare} className="btn-press w-full bg-gradient-to-r from-gold-400 to-gold-600 text-madrassa-950 font-display font-bold rounded-xl py-3.5 flex items-center justify-center gap-2">
           {copied ? <Check size={18} /> : <Share2 size={18} />} {copied ? 'Copié ! Colle-le à ton/ta conjoint(e)' : 'Partager mon résultat'}
         </button>
