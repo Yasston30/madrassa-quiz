@@ -101,7 +101,7 @@ export default {
     {
       id: 'q7',
       type: 'trou',
-      question: 'Le mot « اِعْلَمْ » (Sache) montre, selon Sheikh Salih Al-Fawzan, l\'______ du sujet qui va être abordé.',
+      question: 'Le mot « اِعْلَمْ » qui ouvre le livre montre, selon Sheikh Salih Al-Fawzan, l\'______ du sujet qui va être abordé.',
       answers: ['importance'],
       explication: "Ce mot montre l'importance du sujet, invitant le lecteur à être particulièrement attentif.",
       sourceRef: 'sache',

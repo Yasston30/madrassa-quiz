@@ -188,7 +188,7 @@ export default {
       question: 'Selon la vision globale du livre présentée dans le cours, combien de parties le composent ?',
       options: ['5', '3', '4', '7'],
       answerIndex: 0,
-      explication: 'Le livre comporte 5 parties : les quatre sujets, les trois sujets, al-hanafiyyah, les trois fondements, et la conclusion.',
+      explication: "Le livre comporte 5 parties, de l'explication de la Sourate Al 'Asr jusqu'à sa conclusion sur la résurrection.",
       sourceRef: 'structure-livre',
     },
     {
