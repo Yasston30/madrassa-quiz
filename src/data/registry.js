@@ -1,5 +1,6 @@
 import cours1 from './courses/aqida/3-fondements/cours-1'
 import cours2 from './courses/aqida/3-fondements/cours-2'
+import cours3 from './courses/aqida/3-fondements/cours-3'
 
 function buildCumulativeExam(sousMatiereId, courseA, courseB, examNumber) {
   const merged = []
@@ -50,7 +51,7 @@ export const matieres = [
         id: '3-fondements',
         nom: 'Les 3 Fondements',
         nomArabe: 'الأصول الثلاثة',
-        modules: withCumulativeExams('3-fondements', [cours1, cours2]),
+        modules: withCumulativeExams('3-fondements', [cours1, cours2, cours3]),
       },
     ],
   },
