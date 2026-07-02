@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { X } from 'lucide-react'
 import { getModuleById } from '../data/registry'
 import { useProfile } from '../context/ProfileContext'
-import { saveAttempt } from '../lib/storage'
+import { saveAttempt, recordAnswer } from '../lib/storage'
 import QuestionCard from '../components/QuestionCard'
 
 export default function Quiz() {
@@ -20,6 +20,8 @@ export default function Quiz() {
   const progress = questions.length ? ((index) / questions.length) * 100 : 0
 
   function handleNext(isCorrect) {
+    const sourceModuleId = current._sourceModuleId ?? module.id
+    recordAnswer(profileId, sourceModuleId, current.id, isCorrect)
     const newCorrectCount = correctCount + (isCorrect ? 1 : 0)
     if (index + 1 >= questions.length) {
       const total = questions.length
@@ -68,7 +70,12 @@ export default function Quiz() {
 
       <div className="px-5 flex-1">
         <AnimatePresence mode="wait">
-          <QuestionCard key={current.id} question={current} onNext={handleNext} />
+          <QuestionCard
+            key={`${current._sourceModuleId ?? module.id}:${current.id}`}
+            question={current}
+            onNext={handleNext}
+            moduleId={current._sourceModuleId ?? module.id}
+          />
         </AnimatePresence>
       </div>
     </div>

@@ -5,6 +5,8 @@ import Home from './screens/Home'
 import ModuleDetail from './screens/ModuleDetail'
 import Quiz from './screens/Quiz'
 import Result from './screens/Result'
+import CourseSummary from './screens/CourseSummary'
+import Revision from './screens/Revision'
 
 function Gated({ children }) {
   const { profileId } = useProfile()
@@ -44,6 +46,22 @@ function AppRoutes() {
         element={
           <Gated>
             <Result />
+          </Gated>
+        }
+      />
+      <Route
+        path="/module/:moduleId/cours"
+        element={
+          <Gated>
+            <CourseSummary />
+          </Gated>
+        }
+      />
+      <Route
+        path="/revision"
+        element={
+          <Gated>
+            <Revision />
           </Gated>
         }
       />

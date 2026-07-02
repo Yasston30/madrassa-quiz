@@ -1,6 +1,7 @@
 const PROFILE_KEY = 'mq_profile'
 const RESULTS_KEY = 'mq_results_v1'
 const IMPORTED_KEY = 'mq_imported_v1'
+const WEAK_KEY = 'mq_weak_v1'
 
 export function getStoredProfile() {
   return localStorage.getItem(PROFILE_KEY)
@@ -85,4 +86,39 @@ export function saveImportedResult(moduleId, profileId, attempt) {
   if (!all[moduleId]) all[moduleId] = {}
   all[moduleId][profileId] = attempt
   writeJSON(IMPORTED_KEY, all)
+}
+
+function weakKey(moduleId, questionId) {
+  return `${moduleId}::${questionId}`
+}
+
+export function recordAnswer(profileId, moduleId, questionId, correct) {
+  const all = readJSON(WEAK_KEY, {})
+  if (!all[profileId]) all[profileId] = {}
+  const key = weakKey(moduleId, questionId)
+  if (correct) {
+    delete all[profileId][key]
+  } else {
+    const existing = all[profileId][key]
+    all[profileId][key] = {
+      moduleId,
+      questionId,
+      missCount: (existing?.missCount ?? 0) + 1,
+      lastMissedAt: new Date().toISOString(),
+    }
+  }
+  writeJSON(WEAK_KEY, all)
+}
+
+export function getWeakQuestions(profileId, moduleId = null) {
+  const all = readJSON(WEAK_KEY, {})
+  const entries = Object.values(all[profileId] ?? {})
+  return moduleId ? entries.filter((e) => e.moduleId === moduleId) : entries
+}
+
+export function clearWeakQuestion(profileId, moduleId, questionId) {
+  const all = readJSON(WEAK_KEY, {})
+  if (!all[profileId]) return
+  delete all[profileId][weakKey(moduleId, questionId)]
+  writeJSON(WEAK_KEY, all)
 }

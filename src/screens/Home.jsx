@@ -1,16 +1,19 @@
 import { motion } from 'framer-motion'
-import { Repeat } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
+import { Repeat, Sparkles, ChevronRight } from 'lucide-react'
 import { useProfile } from '../context/ProfileContext'
 import { matieres } from '../data/registry'
-import { getProfileStats } from '../lib/storage'
+import { getProfileStats, getWeakQuestions } from '../lib/storage'
 import { getOtherProfile } from '../lib/profiles'
 import ModuleCard from '../components/ModuleCard'
 import StatPill from '../components/StatPill'
 
 export default function Home() {
+  const navigate = useNavigate()
   const { profile, profileId, clearProfile } = useProfile()
   const stats = getProfileStats(profileId)
   const other = getOtherProfile(profileId)
+  const weakCount = getWeakQuestions(profileId).length
 
   return (
     <div className="min-h-full pb-10">
@@ -45,6 +48,26 @@ export default function Home() {
           Face à face avec {other.emoji} {other.name} — comparez vos résultats après chaque test.
         </p>
       </header>
+
+      {weakCount > 0 && (
+        <div className="px-5 mt-2 mb-6">
+          <motion.button
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            onClick={() => navigate('/revision')}
+            className="btn-press w-full rounded-2xl bg-gradient-to-r from-gold-400/20 to-gold-600/10 border border-gold-400/40 px-4 py-3.5 flex items-center gap-3"
+          >
+            <span className="h-10 w-10 rounded-full bg-gold-400/20 flex items-center justify-center shrink-0">
+              <Sparkles size={18} className="text-gold-300" />
+            </span>
+            <span className="flex-1 text-left">
+              <span className="block font-display font-bold text-white text-sm">Réviser mes points faibles</span>
+              <span className="block text-madrassa-300 text-xs">{weakCount} question{weakCount > 1 ? 's' : ''} à retravailler</span>
+            </span>
+            <ChevronRight size={18} className="text-gold-300" />
+          </motion.button>
+        </div>
+      )}
 
       <div className="px-5 mt-2 space-y-8">
         {matieres.map((matiere) => (

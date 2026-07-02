@@ -8,6 +8,57 @@ export default {
     "Biographie du Sheikh Muhammad Ibn 'Abdul Wahhab et présentation générale du livre Al-Oussoulou Ath-thalathah (Les 3 Fondements).",
   dureeEstimee: '10-15 min',
   seuilReussite: 60,
+  resume: [
+    {
+      id: 'biographie',
+      titre: "Biographie du Sheikh",
+      contenu:
+        "Le Sheikh Muhammad Ibn 'Abdul Wahhab est né en l'an 1115 de l'Hégire (1703 G.) dans le village d'Al-'Uyaynah, région du Najd (capitale : Ryadh). Il descend de la tribu des Banû Tamîm. Il décéda dans la ville de Ad-Diriyah en l'an 1206 de l'Hégire.",
+    },
+    {
+      id: 'contexte',
+      titre: "Le contexte de son époque",
+      contenu:
+        "À sa naissance, l'empire Ottoman avait le pouvoir sur la Mecque et Médine ; le reste de la péninsule arabique était gouverné par de petits émirs. Les gens étaient revenus à des pratiques idolâtres et respectaient peu les rituels de l'Islam.",
+    },
+    {
+      id: 'jeunesse',
+      titre: "Jeunesse et formation",
+      contenu:
+        "Il grandit dans une famille de gens de science : son père et son grand-père étaient tous deux érudits et juges. Il mémorisa le Coran entièrement avant l'âge de dix ans, puis étudia la jurisprudence hanbalite, le tafsir et la science du hadith.",
+    },
+    {
+      id: 'voyages',
+      titre: "Voyages et enseignement à Al Basra",
+      contenu:
+        "Il voyagea pour acquérir la science : d'abord dans le Najd, puis à la Mecque et à Médine, puis à Al Basra en Irak. À 17 ans, le mufti d'Al Basra le désigna enseignant dans la grande mosquée. Il y prêcha le Tawhid et dénonça le polythéisme, les innovations et les choses détestables — au point de faillir devenir la cible des ennemis de l'Islam, ce qui le contraignit à retourner au Najd.",
+    },
+    {
+      id: 'diriyah',
+      titre: "Retour au Najd et alliance avec Ad-Diriyah",
+      contenu:
+        "De retour à Al-'Uyaynah, il fut d'abord protégé par le dirigeant local, puis dut à nouveau quitter la ville suite à des menaces. Il trouva alors refuge à Ad-Diriyah auprès de Mouhammed Ibn Sa'ûd, ancêtre de la dynastie des As-Sa'ud. Leur alliance permit, par la grâce d'Allah, de réaliser l'unité des tribus arabes sous la bannière du Tawhid.",
+    },
+    {
+      id: 'oeuvres',
+      titre: "Ses ouvrages",
+      contenu:
+        "Il écrivit de nombreux ouvrages : un résumé du Sahîh Al-Bukhârî, Kitâb ut-Tawhîd (Le Livre de l'Unicité), Kashf ush-Shubuhât fit-Tawhîd, Kitâb ul-Kabâ'ir (Le Livre des Péchés Graves), Al-Oussoulou Ath-thalathah (Les 3 Fondements), An-Nawaqidou Al-islâm (Les annulatifs de l'Islam), et Al-qawa'idatou Al-arba'ah (Les 4 règles).",
+    },
+    {
+      id: 'importance-livre',
+      titre: "Importance du livre « Les 3 Fondements »",
+      contenu:
+        "Plusieurs grands savants ont souligné l'importance de ce livre concis mais essentiel pour la 'Aqidah : Sheikh Ibn Bâz, Sheikh Salah Al Fawzan, ou encore le petit-fils du Sheikh Abderrahman Ibn Hassan. Sheikh Muhammad Ibn Ibrahim, qui fut l'enseignant de Sheikh Ibn Bâz, recommandait fortement son étude et l'expliquait quotidiennement.",
+    },
+    {
+      id: 'structure-livre',
+      titre: "Structure du livre (5 parties)",
+      contenu:
+        "1) Les quatre sujets, avec l'explication de la Sourate Al 'Asr. 2) Les trois sujets, sur les différentes sortes de Tawhid. 3) Al-hanafiyyah : l'importance du Tawhid et la définition du Shirk. 4) Les trois fondements : Qui est ton Seigneur ? Quelle est ta religion ? Quel est ton Prophète ? 5) La conclusion, qui commence par l'évocation de la résurrection des gens après leur mort.",
+    },
+  ],
+  lexique: [],
   questions: [
     {
       id: 'q1',
@@ -16,6 +67,7 @@ export default {
       options: ['1115 H', '1206 H', '1303 H', '1050 H'],
       answerIndex: 0,
       explication: "Il est né en l'an 1115 de l'Hégire (1703 G.) dans le village d'Al-'Uyaynah.",
+      sourceRef: 'biographie',
     },
     {
       id: 'q2',
@@ -23,6 +75,7 @@ export default {
       question: "Le sheikh est né dans le village de ______, dans la région du Najd.",
       answers: ["Al-'Uyaynah", 'Al Uyaynah', 'Uyaynah'],
       explication: "Le village d'Al-'Uyaynah se trouve dans la région du Najd, dont la capitale est Ryadh.",
+      sourceRef: 'biographie',
     },
     {
       id: 'q3',
@@ -31,6 +84,7 @@ export default {
       options: ['Banû Tamîm', 'Quraysh', 'Banû Hâchim', 'Al Khazraj'],
       answerIndex: 0,
       explication: 'Il est un descendant de la tribu des Banû Tamîm, une grande tribu arabe du centre de l\'Arabie.',
+      sourceRef: 'biographie',
     },
     {
       id: 'q4',
@@ -38,6 +92,7 @@ export default {
       question: 'À l\'époque de la naissance du sheikh, La Mecque et Médine étaient sous le pouvoir de l\'empire Ottoman.',
       answer: true,
       explication: "Exact : l'empire Ottoman avait le pouvoir sur la Mecque et Médine, le reste de la péninsule étant gouverné par de petits émirs.",
+      sourceRef: 'contexte',
     },
     {
       id: 'q5',
@@ -45,6 +100,7 @@ export default {
       question: 'Le père et le grand-père du sheikh étaient tous deux des juges et de grands savants.',
       answer: true,
       explication: 'Le sheikh grandit dans une maison de gens de science : son père et son grand-père étaient tous deux érudits et juges.',
+      sourceRef: 'jeunesse',
     },
     {
       id: 'q6',
@@ -53,12 +109,14 @@ export default {
       options: ['10 ans', '15 ans', '7 ans', '20 ans'],
       answerIndex: 0,
       explication: 'Il mémorisa le Coran entièrement avant l\'âge de dix ans.',
+      sourceRef: 'jeunesse',
     },
     {
       id: 'q7',
       type: 'ouverte',
       question: "Cite au moins deux sciences (en dehors de la mémorisation du Coran) que le sheikh a étudiées durant sa jeunesse.",
       reponseModele: 'La jurisprudence (fiqh) hanbalite, le tafsir (exégèse du Coran) et la science du hadith.',
+      sourceRef: 'jeunesse',
     },
     {
       id: 'q8',
@@ -67,6 +125,7 @@ export default {
       options: ['17 ans', '25 ans', '12 ans', '30 ans'],
       answerIndex: 0,
       explication: "Alors qu'il n'avait que 17 ans, le mufti d'Al Basra le désigna comme enseignant dans la grande mosquée.",
+      sourceRef: 'voyages',
     },
     {
       id: 'q9',
@@ -74,6 +133,7 @@ export default {
       question: 'À Al Basra, le sheikh prêcha le message essentiel de l\'Islam qu\'est le ______ et dénonça le polythéisme.',
       answers: ['Tawhid', 'Tawhîd'],
       explication: 'Il prêcha le Tawhid (l\'unicité d\'Allah) et dénonça le polythéisme sous toutes ses formes, ainsi que les innovations.',
+      sourceRef: 'voyages',
     },
     {
       id: 'q10',
@@ -81,6 +141,7 @@ export default {
       question: "Le sheikh dut quitter Al Basra car il faillit devenir la cible des ennemis de l'Islam.",
       answer: true,
       explication: "Peu s'en est fallu pour qu'il ne devienne la cible des ennemis de l'Islam ; il fut contraint de quitter la ville et retourna au Najd.",
+      sourceRef: 'voyages',
     },
     {
       id: 'q11',
@@ -89,6 +150,7 @@ export default {
       options: ["Mouhammed Ibn Sa'ûd", "Le mufti d'Al Basra", 'Sheikh Ibn Bâz', "Le dirigeant d'Al-'Uyaynah"],
       answerIndex: 0,
       explication: "Il trouva asile auprès de Mouhammed Ibn Sa'ûd, l'ancêtre de la dynastie des As-Sa'ud, avec qui il conclut une alliance.",
+      sourceRef: 'diriyah',
     },
     {
       id: 'q12',
@@ -96,6 +158,7 @@ export default {
       question: "Grâce à l'alliance entre le sheikh et Mouhammed Ibn Sa'ûd, l'unité des tribus arabes fut réalisée sous la bannière du Tawhid.",
       answer: true,
       explication: "Ensemble, par la grâce d'Allah, ils réalisèrent l'unité des tribus arabes sous la bannière du Tawhid.",
+      sourceRef: 'diriyah',
     },
     {
       id: 'q13',
@@ -109,6 +172,7 @@ export default {
       ],
       answerIndex: 0,
       explication: "Le sheikh a écrit un résumé du Sahîh Al-Bukhârî, mais l'ouvrage original est de l'Imam Al-Bukhârî lui-même.",
+      sourceRef: 'oeuvres',
     },
     {
       id: 'q14',
@@ -116,6 +180,7 @@ export default {
       question: '"Al-Oussoulou Ath-thalathah" signifie en français : "Les ______ fondements".',
       answers: ['trois', '3'],
       explication: 'Al-Oussoulou Ath-thalathah signifie "Les 3 fondements".',
+      sourceRef: 'oeuvres',
     },
     {
       id: 'q15',
@@ -124,6 +189,7 @@ export default {
       options: ['5', '3', '4', '7'],
       answerIndex: 0,
       explication: 'Le livre comporte 5 parties : les quatre sujets, les trois sujets, al-hanafiyyah, les trois fondements, et la conclusion.',
+      sourceRef: 'structure-livre',
     },
     {
       id: 'q16',
@@ -137,12 +203,14 @@ export default {
       ],
       answerIndex: 0,
       explication: "La quatrième partie traite des trois fondements : Qui est ton Seigneur ? Quelle est ta religion ? Quel est ton Prophète ?",
+      sourceRef: 'structure-livre',
     },
     {
       id: 'q17',
       type: 'ouverte',
       question: 'Quelles sont les trois questions fondamentales traitées dans la quatrième partie du livre ?',
       reponseModele: 'Qui est ton Seigneur ? Quelle est ta religion ? Quel est ton Prophète ?',
+      sourceRef: 'structure-livre',
     },
     {
       id: 'q18',
@@ -150,6 +218,7 @@ export default {
       question: 'Sheikh Muhammad Ibn Ibrahim était l\'enseignant de Sheikh Ibn Bâz.',
       answer: true,
       explication: 'Le texte le décrit comme "le Sheikh du Sheikh Ibn Bâz", c\'est-à-dire son enseignant. Il recommandait fortement l\'étude de ce livre.',
+      sourceRef: 'importance-livre',
     },
     {
       id: 'q19',
@@ -163,6 +232,7 @@ export default {
       ],
       answerIndex: 0,
       explication: 'Elle commence par « وَالنَّاسُ إِذَا مَاتُوا يُبْعَثُونَ », ce qui signifie : et les gens lorsqu\'ils mourront, ils seront ressuscités.',
+      sourceRef: 'structure-livre',
     },
     {
       id: 'q20',
@@ -170,6 +240,7 @@ export default {
       question: 'Le sheikh décéda dans la ville de ______, en l\'an 1206 de l\'Hégire.',
       answers: ['Ad-Diriyah', 'Ad Diriyah', 'Diriyah'],
       explication: 'Il décéda dans la ville de Ad-Diriyah en l\'an 1206 de l\'Hégire.',
+      sourceRef: 'biographie',
     },
   ],
 }

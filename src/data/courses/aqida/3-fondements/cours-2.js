@@ -8,6 +8,44 @@ export default {
     "Pourquoi l'auteur commence par la Basmalah, le sens de « Sache » et « Qu'Allah te fasse miséricorde », et les deux types d'obligation (individuelle et collective). Inclut le vocabulaire arabe du cours.",
   dureeEstimee: '10-15 min',
   seuilReussite: 60,
+  resume: [
+    {
+      id: 'basmalah',
+      titre: "La Basmalah, un exemple à suivre",
+      contenu:
+        "L'auteur commence son ouvrage par la Basmalah, à l'exemple : du Livre d'Allah (le Coran, dont toutes les sourates commencent par la Basmalah sauf At-Tawbah, aussi appelée Al-Bara'a) ; de la Sunnah du Prophète (ex : sa lettre à Héraclius, empereur de Rome) ; et de l'habitude des gens de science, comme le rapporte l'Imam Ibn Hajar Al-Asqalani dans Fath Al-Bari (son explication de Sahîh Al-Boukhari).",
+    },
+    {
+      id: 'sache',
+      titre: "Le sens de « Sache » (اِعْلَمْ)",
+      contenu:
+        "Selon Sheikh Salih Al-Fawzan, ce mot montre l'importance du sujet qui va être abordé : il invite le lecteur à être particulièrement attentif à ce qui va suivre.",
+    },
+    {
+      id: 'misericorde',
+      titre: "« Qu'Allah te fasse miséricorde » (رَحِمَكَ اللهُ)",
+      contenu:
+        "C'est une invocation du Sheikh pour le lecteur, montrant le lien entre science et miséricorde. Le hadith « Le Tout Miséricordieux fait miséricorde à ceux qui sont miséricordieux… » (rapporté par Tirmidhi, n°1924, authentifié par Cheikh Al-Albani) illustre cela. Ibn Taymiyya a dit que les gens de la Sunnah font miséricorde aux créatures et suivent la vérité. Sheikh Al-Utheymin explique que cette invocation signifie : qu'Allah te pardonne tes péchés passés, t'accorde la réussite et te préserve dans tes affaires futures.",
+    },
+    {
+      id: 'obligation',
+      titre: "Les deux types d'obligation",
+      contenu:
+        "L'obligation (wâjib) se divise en deux : l'obligation individuelle (wâjib 'ayni), qui incombe à chaque individu ayant atteint la puberté (ex : la prière, la zakat, le jeûne, le hajj) ; et l'obligation collective (wâjib kifâ'i), qui n'est plus exigée du reste de la communauté dès qu'une partie l'accomplit (ex : la prière sur le mort). Apprendre les quatre points importants évoqués par le sheikh est une obligation individuelle.",
+    },
+    {
+      id: 'lexique',
+      titre: "Vocabulaire du cours",
+      contenu:
+        "Ce cours introduit quatre mots de vocabulaire arabe essentiels, à retrouver dans le tableau ci-dessous : Sache, Quatre, Les points/sujets (et son singulier), et La miséricorde.",
+    },
+  ],
+  lexique: [
+    { arabe: 'اِعْلَمْ', francais: 'Sache' },
+    { arabe: 'أَرْبَعُ', francais: 'Quatre' },
+    { arabe: 'الْمَسَائِلُ', francais: 'Les points / sujets (singulier : الْمَسْأَلَةُ)' },
+    { arabe: 'الرَّحْمَةُ', francais: 'La miséricorde' },
+  ],
   questions: [
     {
       id: 'q1',
@@ -16,6 +54,7 @@ export default {
       options: ['La Basmalah', 'La Chahada', 'La Fatiha', 'Le Tawhid'],
       answerIndex: 0,
       explication: "L'auteur commence par la Basmalah, à l'exemple du Coran, de la Sunnah du Prophète, et de l'habitude des gens de science.",
+      sourceRef: 'basmalah',
     },
     {
       id: 'q2',
@@ -23,6 +62,7 @@ export default {
       question: 'Toutes les sourates du Coran commencent par la Basmalah, sans aucune exception.',
       answer: false,
       explication: 'Sauf la Sourate At-Tawbah, aussi appelée Sourate Al-Bara\'a.',
+      sourceRef: 'basmalah',
     },
     {
       id: 'q3',
@@ -31,6 +71,7 @@ export default {
       options: ["At-Tawbah (Al-Bara'a)", 'Al-Fatiha', 'Al-Ikhlas', 'Al-Baqara'],
       answerIndex: 0,
       explication: "La Sourate At-Tawbah, appelée aussi Sourate Al-Bara'a, est la seule à ne pas commencer par la Basmalah.",
+      sourceRef: 'basmalah',
     },
     {
       id: 'q4',
@@ -39,12 +80,14 @@ export default {
       options: ['La lettre à Héraclius, empereur de Rome', 'Le hadith de Jibril', 'Le hadith des actions', "Le hadith de l'intention"],
       answerIndex: 0,
       explication: 'Le hadith de la lettre envoyée par le Prophète à Héraclius, empereur de Rome, commence par la Basmalah.',
+      sourceRef: 'basmalah',
     },
     {
       id: 'q5',
       type: 'ouverte',
       question: "Cite les trois exemples donnés dans le cours qui montrent que commencer par la Basmalah est une pratique établie.",
       reponseModele: "Le Livre d'Allah (le Coran), la Sunnah du Prophète (ex : la lettre à Héraclius), et l'habitude des gens de science de commencer leurs livres par la Basmalah.",
+      sourceRef: 'basmalah',
     },
     {
       id: 'q6',
@@ -53,6 +96,7 @@ export default {
       options: ['Fath Al-Bari (explication de Sahîh Al-Boukhari)', 'Kitâb ut-Tawhîd', 'Riyad As-Salihin', 'Sahîh Muslim'],
       answerIndex: 0,
       explication: "C'est dans Fath Al-Bari, son explication de Sahîh Al-Boukhari, qu'Ibn Hajar Al-Asqalani rapporte cette habitude des savants.",
+      sourceRef: 'basmalah',
     },
     {
       id: 'q7',
@@ -60,6 +104,7 @@ export default {
       question: 'Le mot « اِعْلَمْ » (Sache) montre, selon Sheikh Salih Al-Fawzan, l\'______ du sujet qui va être abordé.',
       answers: ['importance'],
       explication: "Ce mot montre l'importance du sujet, invitant le lecteur à être particulièrement attentif.",
+      sourceRef: 'sache',
     },
     {
       id: 'q8',
@@ -72,6 +117,7 @@ export default {
         "Qu'Allah augmente ta science",
       ],
       answerIndex: 0,
+      sourceRef: 'misericorde',
     },
     {
       id: 'q9',
@@ -79,6 +125,7 @@ export default {
       question: 'Le hadith « Le Tout Miséricordieux fait miséricorde à ceux qui sont miséricordieux… » a été rapporté par l\'Imam Tirmidhi.',
       answer: true,
       explication: 'Rapporté par Tirmidhi dans ses Sounan n°1924, authentifié par Cheikh Al-Albani.',
+      sourceRef: 'misericorde',
     },
     {
       id: 'q10',
@@ -91,6 +138,7 @@ export default {
         'Ils délaissent la miséricorde pour la rigueur',
       ],
       answerIndex: 0,
+      sourceRef: 'misericorde',
     },
     {
       id: 'q11',
@@ -99,6 +147,7 @@ export default {
       options: ['2', '3', '4', '5'],
       answerIndex: 0,
       explication: "L'obligation se divise en deux : individuelle (wâjib 'ayni) et collective (wâjib kifâ'i).",
+      sourceRef: 'obligation',
     },
     {
       id: 'q12',
@@ -106,6 +155,7 @@ export default {
       question: "Comment s'appelle l'obligation qui incombe à chaque individu ayant atteint la puberté et remplissant les conditions requises ?",
       options: ["Wâjib 'ayni (obligation individuelle)", "Wâjib kifâ'i (obligation collective)", 'Sunnah mu\'akkada', 'Fard kifaya uniquement'],
       answerIndex: 0,
+      sourceRef: 'obligation',
     },
     {
       id: 'q13',
@@ -113,6 +163,7 @@ export default {
       question: "La prière sur le mort est un exemple d'obligation ______ : dès qu'une partie des gens l'accomplit, elle n'est plus exigée du reste de la communauté.",
       answers: ['collective'],
       explication: "C'est un wâjib kifâ'i (obligation collective).",
+      sourceRef: 'obligation',
     },
     {
       id: 'q14',
@@ -120,12 +171,14 @@ export default {
       question: "L'obligation d'apprendre les quatre points importants mentionnés par le sheikh est une obligation individuelle (wâjib 'ayni).",
       answer: true,
       explication: "Le sheikh précise qu'il s'agit ici d'une obligation individuelle, et non collective.",
+      sourceRef: 'obligation',
     },
     {
       id: 'q15',
       type: 'ouverte',
       question: "Donne un exemple d'obligation individuelle et un exemple d'obligation collective cités dans le cours.",
       reponseModele: "Individuelle : la prière, la zakat, le jeûne ou le hajj. Collective : la prière sur le mort.",
+      sourceRef: 'obligation',
     },
     {
       id: 'q16',
@@ -133,6 +186,7 @@ export default {
       question: 'Vocabulaire — Que signifie le mot arabe « اِعْلَمْ » ?',
       options: ['Sache', 'Quatre', 'Miséricorde', 'Obligation'],
       answerIndex: 0,
+      sourceRef: 'lexique',
     },
     {
       id: 'q17',
@@ -140,6 +194,7 @@ export default {
       question: 'Vocabulaire — Quel mot arabe signifie « Quatre » ?',
       options: ['أَرْبَعُ', 'الرَّحْمَةُ', 'الْمَسَائِلُ', 'وَاجِبٌ'],
       answerIndex: 0,
+      sourceRef: 'lexique',
     },
     {
       id: 'q18',
@@ -147,6 +202,7 @@ export default {
       question: 'Vocabulaire — Que signifie « الرَّحْمَةُ » ?',
       options: ['La miséricorde', 'La puberté', "L'obligation", 'La science'],
       answerIndex: 0,
+      sourceRef: 'lexique',
     },
     {
       id: 'q19',
@@ -154,6 +210,7 @@ export default {
       question: 'Vocabulaire — Quel mot arabe désigne « les points / sujets » (au pluriel) traités dans ce cours ?',
       options: ['الْمَسَائِلُ', 'أَرْبَعُ', 'الرَّحْمَةُ', 'اِعْلَمْ'],
       answerIndex: 0,
+      sourceRef: 'lexique',
     },
     {
       id: 'q20',
@@ -161,6 +218,7 @@ export default {
       question: 'Vocabulaire — Quel est le singulier du mot « الْمَسَائِلُ » (Al-Masâ\'il) ?',
       options: ['الْمَسْأَلَةُ', 'الْمَسَاجِدُ', 'الرَّحِيمُ', 'الْوَاجِبُ'],
       answerIndex: 0,
+      sourceRef: 'lexique',
     },
   ],
 }

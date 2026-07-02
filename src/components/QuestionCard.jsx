@@ -1,7 +1,10 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Check, X, ArrowRight } from 'lucide-react'
+import { Check, X, ArrowRight, BookOpen } from 'lucide-react'
 import { isBlankAnswerCorrect } from '../lib/grading'
+import { containsArabic } from '../lib/speech'
+import SpeakButton from './SpeakButton'
 
 const TYPE_LABELS = {
   qcm: 'QCM',
@@ -10,7 +13,8 @@ const TYPE_LABELS = {
   ouverte: 'Question ouverte',
 }
 
-export default function QuestionCard({ question, onNext }) {
+export default function QuestionCard({ question, onNext, moduleId }) {
+  const navigate = useNavigate()
   const [revealed, setRevealed] = useState(false)
   const [selectedIndex, setSelectedIndex] = useState(null)
   const [selectedBool, setSelectedBool] = useState(null)
@@ -66,7 +70,10 @@ export default function QuestionCard({ question, onNext }) {
       <span className="inline-block text-[11px] uppercase tracking-wide text-gold-300 bg-gold-300/10 border border-gold-300/30 rounded-full px-2.5 py-1 mb-3">
         {TYPE_LABELS[question.type]}
       </span>
-      <p className="font-display text-lg font-semibold text-white leading-snug mb-5">{question.question}</p>
+      <div className="flex items-start gap-2 mb-5">
+        <p className="font-display text-lg font-semibold text-white leading-snug flex-1">{question.question}</p>
+        {containsArabic(question.question) && <SpeakButton text={question.question} className="mt-1" />}
+      </div>
 
       {question.type === 'qcm' && (
         <div className="space-y-2.5">
@@ -84,9 +91,14 @@ export default function QuestionCard({ question, onNext }) {
                 disabled={revealed}
                 className={`btn-press w-full text-left rounded-xl border px-4 py-3 text-sm font-medium flex items-center justify-between gap-2 transition-colors ${cls}`}
               >
-                {opt}
-                {revealed && i === question.answerIndex && <Check size={16} />}
-                {revealed && i === selectedIndex && i !== question.answerIndex && <X size={16} />}
+                <span className="flex items-center gap-2">
+                  {opt}
+                  {containsArabic(opt) && <SpeakButton text={opt} />}
+                </span>
+                <span className="flex items-center gap-1 shrink-0">
+                  {revealed && i === question.answerIndex && <Check size={16} />}
+                  {revealed && i === selectedIndex && i !== question.answerIndex && <X size={16} />}
+                </span>
               </button>
             )
           })}
@@ -172,6 +184,14 @@ export default function QuestionCard({ question, onNext }) {
                     <span className="text-gold-300 font-semibold">Réponse modèle : </span>
                     {question.reponseModele}
                   </p>
+                  {question.sourceRef && moduleId && (
+                    <button
+                      onClick={() => navigate(`/module/${moduleId}/cours#${question.sourceRef}`)}
+                      className="btn-press mt-3 mb-3 inline-flex items-center gap-1.5 text-xs text-gold-300 border border-gold-300/30 bg-gold-300/10 rounded-full px-3 py-1.5"
+                    >
+                      <BookOpen size={13} /> Revoir ce passage du cours
+                    </button>
+                  )}
                   <p className="text-madrassa-400 text-xs mt-2 mb-2">As-tu répondu correctement ?</p>
                   <div className="flex gap-2">
                     <button onClick={() => handleSelfAssess(true)} className="btn-press flex-1 rounded-xl border border-emerald-400/60 bg-emerald-400/10 text-emerald-200 text-sm font-semibold py-2.5">
@@ -191,6 +211,14 @@ export default function QuestionCard({ question, onNext }) {
                     <p className="text-madrassa-300 text-sm mt-1">Réponse attendue : <span className="text-gold-300 font-semibold">{question.answers[0]}</span></p>
                   )}
                   {question.explication && <p className="text-madrassa-300 text-sm mt-2">{question.explication}</p>}
+                  {question.sourceRef && moduleId && (
+                    <button
+                      onClick={() => navigate(`/module/${moduleId}/cours#${question.sourceRef}`)}
+                      className="btn-press mt-3 inline-flex items-center gap-1.5 text-xs text-gold-300 border border-gold-300/30 bg-gold-300/10 rounded-full px-3 py-1.5"
+                    >
+                      <BookOpen size={13} /> Revoir ce passage du cours
+                    </button>
+                  )}
                   <button onClick={handleContinue} className="btn-press mt-4 w-full bg-gold-500 text-madrassa-950 font-bold rounded-xl py-2.5 text-sm flex items-center justify-center gap-1.5">
                     Continuer <ArrowRight size={16} />
                   </button>

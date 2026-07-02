@@ -18,7 +18,7 @@ export default function ModuleCard({ module, index = 0 }) {
       className="btn-press w-full text-left rounded-2xl bg-madrassa-900/80 border border-madrassa-700/60 p-4 flex items-center gap-3 hover:border-gold-400/60 transition-colors"
     >
       <div className="h-12 w-12 shrink-0 rounded-xl bg-madrassa-800 flex items-center justify-center text-xl">
-        📘
+        {module.isExamenCumulatif ? '🧩' : '📘'}
       </div>
       <div className="flex-1 min-w-0">
         <p className="font-display font-bold text-white truncate">{module.titre}</p>
